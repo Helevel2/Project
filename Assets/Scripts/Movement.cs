@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] Rigidbody rigidBody;
+    [SerializeField] Rigidbody rb;
     [SerializeField] float speed;
     [SerializeField] KeyCode left;
     [SerializeField] KeyCode right;
-    [SerializeField] KeyCode up;
     [SerializeField] KeyCode attack;
+
     void Start()
     {
-        if (rigidBody == null)
+        if (rb == null)
         {
-            rigidBody = GetComponentInChildren<Rigidbody>();
+            rb = GetComponentInChildren<Rigidbody>();
         }
     }
+
+
     void Update()
     {
+        
         Vector3 velocity = GetInputVector();
         Move(velocity);
     }
 
     Vector3 GetInputVector()
     {
-        bool upp = Input.GetKey(up);
         bool leftt = Input.GetKey(left);
         bool rightt = Input.GetKey(right);
-        float y = ToAxisUp(upp);
         float z = ToAxis(rightt, leftt);
 
-        Vector3 velocity = new Vector3(0, y, z);
+        Vector3 velocity = new Vector3(0, 0, z);
         return velocity;
     }
     float ToAxis(bool positive, bool negative)
@@ -48,20 +49,10 @@ public class Movement : MonoBehaviour
         else
             value = 0;
         return value;
-    }float ToAxisUp(bool positive)
-    {
-        float value;
-        if (positive)
-        {
-            value = 1;
-        }
-        else
-            value = 0;
-        return value;
     }
 
     void Move(Vector3 velocity)
     {
-        rigidBody.velocity = velocity.normalized * speed;
+        rb.velocity = velocity.normalized * speed;
     }
 }
