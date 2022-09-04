@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     {
         if (rb == null)
         {
-            rb = GetComponentInChildren<Rigidbody>();
+            rb = GetComponent<Rigidbody>();
         }
     }
 
