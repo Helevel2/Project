@@ -26,12 +26,7 @@ public class Movement : MonoBehaviour
     {
         Vector3 velocity = GetInputVector();
         Move(velocity);
-        if (Input.GetKeyDown(jump) && isGrounded)
-        {
-            isGrounded = false;
-            rb.AddForce(Vector3.up * jumpStrenght,ForceMode.Impulse);
-            
-        }
+        
     }
 
     void OnCollisionStay()
@@ -41,12 +36,13 @@ public class Movement : MonoBehaviour
 
     Vector3 GetInputVector()
     {
-        bool jumpp = Input.GetKey(jump);
+        bool jumpp = Input.GetKeyDown(jump);
         bool leftt = Input.GetKey(left);
         bool rightt = Input.GetKey(right);
         float z = ToAxis(rightt, leftt);
         float y = yAxis(jumpp);
         
+
 
         Vector3 velocity = new Vector3(0, rb.velocity.y, z);
         return velocity;
@@ -81,5 +77,11 @@ public class Movement : MonoBehaviour
     void Move(Vector3 velocity)
     {
         rb.velocity = speed * velocity.normalized;
+        if (Input.GetKeyDown(jump) && isGrounded)
+        {
+            isGrounded = false;
+            rb.AddForce(Vector3.up * jumpStrenght, ForceMode.Impulse);
+
+        }
     }
 }
