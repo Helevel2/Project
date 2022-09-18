@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHP : MonoBehaviour
 {
+    [SerializeField] int HP;
     
     void Start()
     {
