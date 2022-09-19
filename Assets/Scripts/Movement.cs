@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
         
 
 
-        Vector3 velocity = new Vector3(0, rb.velocity.y, z);
+        Vector3 velocity = new Vector3(0, y, z);
         return velocity;
     }
     float ToAxis(bool positive, bool negative)
@@ -60,7 +60,7 @@ public class Movement : MonoBehaviour
         }
         else
             value = 0;
-        return value;
+        return value*speed;
     }
     float yAxis(bool positive)
     {
@@ -71,16 +71,17 @@ public class Movement : MonoBehaviour
         }
         else
             value = 0;
-        return value;
+        return value*jumpStrenght;
                 
     }
     void Move(Vector3 velocity)
     {
-        rb.velocity = speed * velocity.normalized;
+        //rb.velocity = speed * velocity.normalized;
+        
         if (Input.GetKeyDown(jump) && isGrounded)
         {
             isGrounded = false;
-            rb.AddForce(Vector3.up * jumpStrenght, ForceMode.Impulse);
+            rb.AddForce(velocity, ForceMode.VelocityChange);
 
         }
     }
