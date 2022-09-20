@@ -25,7 +25,7 @@ public class Mover : MonoBehaviour
     void Update()
     {
         Move();
-
+        Turning();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -76,4 +76,20 @@ public class Mover : MonoBehaviour
             rb.velocity = vel;
         }
     }
+
+    void Turning()
+    {
+        if (Input.GetKeyDown(left))
+        {
+            this.transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
+        }
+        if (Input.GetKeyDown(right))
+        {
+            this.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+        }
+
+
+    }
+
+
 }
