@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHP : MonoBehaviour
+public class Player2HP : MonoBehaviour
 {
-    [SerializeField] public int HP=1;
+    [SerializeField] public int HP2=1;
 
 
     void Update()
     {
-        if (HP <= 0)
+        if (HP2 <= 0)
         {
             Destroy(gameObject);
         }
@@ -17,12 +17,13 @@ public class PlayerHP : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Damager damager = other.GetComponentInChildren<Damager>();
-        Player2HP Phealth2 = other.GetComponentInChildren<Player2HP>();
-        if (damager != null && Phealth2.HP2 > 0)
+        PlayerHP Phealth = other.GetComponentInChildren<PlayerHP>();
+        
+        if (damager != null && Phealth.HP > 0)
         {
-            Phealth2.HP2 -= damager.damage;
+            Phealth.HP -= damager.damage;
 
-            
+
         }
     }
 }
