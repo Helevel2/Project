@@ -8,7 +8,6 @@ public class Mover : MonoBehaviour
     [SerializeField] int airJumpCount = 1;
     [SerializeField] KeyCode left;
     [SerializeField] KeyCode right;
-    [SerializeField] KeyCode attack;
     [SerializeField] KeyCode jump;
     
     int jumpCount;

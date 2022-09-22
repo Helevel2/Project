@@ -1406,6 +1406,8 @@ GameObject:
   - component: {fileID: 2451789804062270475}
   - component: {fileID: 764487478764567715}
   - component: {fileID: 4568383821136446932}
+  - component: {fileID: 8411718363872248144}
+  - component: {fileID: 543188671953630283}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1496,7 +1498,6 @@ MonoBehaviour:
   airJumpCount: 2
   left: 97
   right: 100
-  attack: 0
   jump: 32
 --- !u!114 &2451789804062270475
 MonoBehaviour:
@@ -1537,6 +1538,42 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.6350201, z: 1.3501105}
   m_Center: {x: 7.113294e-16, y: 0.12711066, z: 0.17505533}
+--- !u!95 &8411718363872248144
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8295875776101214562}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef272e65ad9341146adc1aca20fa45b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &543188671953630283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8295875776101214562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3fb738d1adb3b45a6f7b13756fedab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8411718363872248144}
+  StanceUp: 119
+  StanceDown: 115
+  Attack: 304
 --- !u!1 &8295875776737737319
 GameObject:
   m_ObjectHideFlags: 0
